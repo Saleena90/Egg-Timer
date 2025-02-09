@@ -1,0 +1,15 @@
+#timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+#progress {
+    transform: rotate(-90deg);
+    transform-origin: center center;
+    transition: stroke-dashoffset 0.25s;
+}

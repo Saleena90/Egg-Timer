@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egg Boiler Timer</title>
+</head>
+<body>
+    <h1>Egg Boiler Timer</h1>
+    <input type="number" id="minutes" placeholder="Minutes">
+    <input type="number" id="seconds" placeholder="Seconds">
+    <button onclick="startTimer()">Start Timer</button>
+    <div id="countdown"></div>
+    
+    <script>
+        function startTimer() {
+            var minutes = document.getElementById("minutes").value;
+            var seconds = document.getElementById("seconds").value;
+            var totalSeconds = parseInt(minutes) * 60 + parseInt(seconds);
+
+            var countdown = document.getElementById("countdown");
+            var interval = setInterval(function() {
+                var m = Math.floor(totalSeconds / 60);
+                var s = totalSeconds % 60;
+                countdown.innerHTML = m + "m " + s + "s";
+
+                if (totalSeconds <= 0) {
+                    clearInterval(interval);
+                    alert("Time's up! Your eggs are ready!");
+                }
+
+                totalSeconds--;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
